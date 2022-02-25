@@ -1,0 +1,25 @@
+program: RS_WandB_Sweep_train.py
+method: random
+metric:
+  name: validation_loss
+  goal: minimize
+parameters:
+  batch_size:
+    min: 20
+    max: 100
+  learning_rate:
+    values: [0.00001,0.0001,0.005,0.00005,0.001]
+  optimizer:
+    values: ["Adam", "SGD"]
+  loss_function:
+    values: ["binary_crossentropy"]
+  filters1:
+    values: [18,36,64]
+  filters2:
+    values: [36,64,128]
+  kernel_size:
+    values: [3,4,6]
+  dropout:
+    values: [0.2,0.5,0.3,0.4]
+  units:
+    values: [128,256]
